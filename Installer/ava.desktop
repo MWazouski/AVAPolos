@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=AVA-Polos
+Comment=Solução AVA-Polos
+Exec=bash /opt/AVAPolos_installer/run.sh
+Icon=/opt/AVAPolos_installer/favicon.ico
+Type=Application
+GenericName=GUI
+Encoding=UTF-8
+Version=1.0
+Terminal=false
+Categories=Utility

@@ -1,0 +1,23 @@
+a:26:{s:8:"encoding";s:24:"Codificação de arquivo";s:13:"expiredaction";s:33:"Ação ao término da inscrição";s:18:"expiredaction_help";s:202:"Selecione a ação a ser realizada quando a inscrição do usuário terminar. Por favor, observe que alguns dados e configurações do usuário são removidos do curso durante a desinscrição no curso.";s:14:"filelockedmail";s:351:"O arquivo de texto que você está utilizando para fazer as inscrições ({$a}) não pôde ser cancelado pelo processo cron. Isto normalmente significa que a configuração das permissões do arquivo não é compatível. Por favor corrija as permissões para que o sistema possa cancelar o arquivo e impedir que o mesmo seja processado diversas vezes.";s:21:"filelockedmailsubject";s:39:"Erro importante: Arquivo de inscrição";s:15:"flatfile:manage";s:45:"Gerenciar inscrição de usuário manualmente";s:16:"flatfile:unenrol";s:43:"Desinscrever usuários do curso manualmente";s:18:"flatfileenrolments";s:26:"Flat file (CSV) enrolments";s:12:"flatfilesync";s:36:"Inscrição sincronizada de arquivos";s:8:"location";s:24:"Localização do arquivo";s:13:"location_desc";s:120:"Especifique o caminho completo para o arquivo de registro. O arquivo é automaticamente excluído após o processamento.";s:11:"notifyadmin";s:23:"Notificar administrador";s:14:"notifyenrolled";s:32:"Notificar os usuários inscritos";s:14:"notifyenroller";s:49:"Notificar o usuário responsável por matrículas";s:34:"messageprovider:flatfile_enrolment";s:41:"Mensagem de inscrição por arquivo plano";s:7:"mapping";s:27:"Mapeamento de arquivo plano";s:10:"pluginname";s:19:"Arquivo plano (CSV)";s:15:"pluginname_desc";s:979:"Este método irá verificar repetidamente e processar um arquivo de texto especialmente formatado no local que você especificar. O arquivo é do tipo separado por vírgula e deverá ter quatro ou seis campos por linha:
+
+operação, nome curto do papel, idnumber do usuário, idnumber do curso  [, horário de inicio, horário de encerramento]
+
+onde:
+
+* operação  = add | del
+* função = estudante | professor | professor-editor
+* número de itendificação (usuário) = idnumber na tabela de usuário NB não Id
+ * número de identificação (curso) = idnumber na tabela de cursos NB não Id
+* horário de inicio =  hora de início (em segundos desde a época)
+* horário de encerramento =  tempo final (em segundos desde a epoca) - opcional
+
+Poderia ser algo assim:
+
+<pre class="informationbox">
+add, student, 5, CF101
+add, teacher, 6, CF101
+add. editing-teacher, 7, CF101
+del, student, 8, CF101
+del, student, 17, CF101
+add, student, 21, CF101, 1091115000, 1091215000
+</pre>";s:31:"privacy:metadata:enrol_flatfile";s:119:"The Flat file (CSV) enrolment plugin may store personal data relating to future enrolments in the enrol_flatfile table.";s:38:"privacy:metadata:enrol_flatfile:action";s:47:"The enrolment action expected on the given date";s:40:"privacy:metadata:enrol_flatfile:courseid";s:44:"The course ID to which the enrolment relates";s:38:"privacy:metadata:enrol_flatfile:roleid";s:47:"The ID of the role to be assigned or unassigned";s:41:"privacy:metadata:enrol_flatfile:timestart";s:34:"The time when the enrolment starts";s:39:"privacy:metadata:enrol_flatfile:timeend";s:32:"The time when the enrolment ends";s:44:"privacy:metadata:enrol_flatfile:timemodified";s:39:"The time when the enrolment is modified";s:38:"privacy:metadata:enrol_flatfile:userid";s:55:"The ID of the user to which the role assignment relates";}

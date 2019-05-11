@@ -1,0 +1,1 @@
+a:3:{s:23:"auth_nologindescription";s:174:"Plugin auxiliar que impossibilita ao usuário logar no seu sistema e também descarta qualquer email enviado a ele. Pode ser usado para <em>suspender</em> contas de usuário.";s:10:"pluginname";s:12:"Nenhum login";s:16:"privacy:metadata";s:68:"The No login authentication plugin does not store any personal data.";}
