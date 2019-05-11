@@ -1,0 +1,33 @@
+ ================= INICIANDO PROCESSO DE EXPORTAÇÃO =================\n
+-> CONFIG FILE | STATUS = [OK]
+---> Último Export : 1
+---> Último Import : 0
+ -> Copiando arquivos....
+ ----> ...arquivos copiados.
+ -> Gerando arquivo para exportação...
+ ----> ...arquivo gerado.
+-> Limpando filas de atualização...
+ ==================== Sincronização | STATUS = [INICIALIZANDO]
+-> Stopping container DB_MASTER...
+db_moodle_ies
+-----> DOCKER DB_MASTER | STATUS = [OFF]
+-> Stopping container DB_SYNC...
+db_moodle_polo
+----> DOCKER DB_SYNC | STATUS = [OFF]
+-> Apagando logs antigos...
+----> ...logs apagados.
+-> Starting container DB_MASTER...
+db_moodle_ies
+-----> DOCKER DB_MASTER | STATUS = [ON]
+-> Starting container DB_SYNC...
+db_moodle_polo
+----> DOCKER DB_SYNC | STATUS = [ON]
+-> Sincronização em andamento | STATUS = [NÃO FINALIZADA]
+-> Sincronização em andamento | STATUS = [NÃO FINALIZADA]
+-> Stopping container DB_SYNC...
+db_moodle_polo
+----> DOCKER DB_SYNC | STATUS = [OFF]
+----> Sincronização | STATUS = [FINALIZADA]
+ ----> ...filas limpas.
+ ================= PROCESSO DE EXPORTAÇÃO CONCLUÍDO. =================
+Script ended!

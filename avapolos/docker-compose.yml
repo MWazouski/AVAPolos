@@ -1,0 +1,109 @@
+version: '2'
+
+services:
+  db_moodle_ies:
+    container_name: db_moodle_ies
+    image: avapolos/postgres_bdr:master
+    environment:
+     - POSTGRES_PASSWORD=@bancoava.C4p35*&
+     - UID=1001
+    volumes:
+     - ./data/db_moodle_ies:/var/lib/postgresql/data
+    networks:
+      avapolos_network:
+        ipv4_address: 172.12.0.2
+    stop_signal: SIGINT
+    restart: unless-stopped
+  
+  db_moodle_polo: 
+    container_name: db_moodle_polo
+    image: avapolos/postgres_bdr:master
+    environment:
+      - POSTGRES_PASSWORD=@bancoava.C4p35*&
+      - UID=1001
+    volumes:
+     - ./data/db_moodle_polo:/var/lib/postgresql/data
+    networks:
+      avapolos_network:
+        ipv4_address: 172.12.0.3
+    stop_signal: SIGINT
+    restart: unless-stopped
+
+  db_wiki: 
+    container_name: db_wiki
+    image: avapolos/postgres_bdr:master
+    environment:
+      - POSTGRES_PASSWORD=@bancoava.C4p35*&
+      - UID=1001
+    volumes:
+     - ./data/db_wiki:/var/lib/postgresql/data
+    networks:
+      avapolos_network:
+        ipv4_address: 172.12.0.6
+    stop_signal: SIGINT
+    restart: unless-stopped
+  
+
+  moodle:
+    container_name: moodle
+    image: avapolos/webserver:lite
+    ports:
+      - "80:80"
+    volumes:
+      - ./data/moodle:/app/
+    networks:
+      avapolos_network:
+        ipv4_address: 172.12.0.4
+    environment:
+      - UID=1001
+    restart: unless-stopped
+
+  wiki:
+    container_name: wiki
+    image: avapolos/webserver:lite
+    ports:
+      - "81:80"
+    volumes:
+      - ./data/wiki:/app/
+    networks:
+      avapolos_network:
+        ipv4_address: 172.12.0.5
+    environment:
+      - UID=1001
+    restart: unless-stopped
+
+  educapes:
+    container_name: educapes
+    image: brendowdf/dspace-educapes:latest
+    volumes:
+     - /opt/dspace/assetstore:/dspace/assetstore 
+     - /opt/dspace/data-solr/data:/dspace/solr/search/data
+    ports:
+     - "8080:8080"
+    networks:
+      avapolos_network:
+        ipv4_address: 172.12.0.8
+    stop_signal: SIGINT
+    restart: unless-stopped
+    depends_on:
+      - dspacedb
+  
+  dspacedb: 
+    container_name: dspacedb
+    image: brendowdf/dspace-postgres-educapes:latest
+    volumes:
+     - /opt/dspace/database/var/lib/postgresql/data/:/var/lib/postgresql/data
+    networks:
+      avapolos_network:
+        ipv4_address: 172.12.0.7
+    stop_signal: SIGINT
+    restart: unless-stopped
+
+networks:
+  avapolos_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.12.0.0/16
+          gateway: 172.12.0.1
