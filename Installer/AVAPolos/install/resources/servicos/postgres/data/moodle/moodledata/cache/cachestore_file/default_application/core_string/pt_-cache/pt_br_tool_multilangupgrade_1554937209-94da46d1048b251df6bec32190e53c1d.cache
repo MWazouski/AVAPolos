@@ -1,3 +1,0 @@
-a:3:{s:20:"multilangupgradeinfo";s:314:"<p>A sintaxe do filtro Multilang foi mudada em 1,8. Portanto a tag <lang> não é mais suportada. </p>
-<p>Exemplo: <span lang="en" class="multilang">Hello!&lt;/span&gt;&lt;span lang="es" class="multilang"&gt;Hola!&lt;/span&gt;</p>
-<p> <strong>Você quer atualizar a sintaxe em todos os textos existentes agora?</p>";s:10:"pluginname";s:26:"Atualização multi-lingua";s:16:"privacy:metadata";s:70:"O plugin de atualização Multilang não armazena nenhum dado pessoal.";}
