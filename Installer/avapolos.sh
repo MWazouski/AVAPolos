@@ -101,22 +101,50 @@ install_ava () {
     echo "Argumentos passados: $1 $2 $3"
     echo "Criando diretório de instalação."
     sudo mkdir -p /opt/AVAPolos
-    #if [ -f "AVAPolos.tar.gz" ]; then
-    #  echo "Movendo arquivos de instalação."
-    #  sudo cp AVAPolos.tar.gz /opt/AVAPolos/
-    sudo cp -r AVAPolos/* /opt/AVAPolos/
-    cd /opt/AVAPolos/install
-    #else
-    #  echo "O arquivo 'AVAPolos.tar.gz' não foi encontrado, certifique-se que o mesmo se encontra nesse diretório: $PWD"
-    #  exit
-    #fi
-    #echo "Extraindo arquivos."
-    #sudo tar xf AVAPolos.tar.gz
-    #cd install
-    sudo touch scripts/database
-    sudo chmod 777 scripts/database
-    echo "postgresql" >> scripts/database
- 
+    if [ -f "AVAPolos.tar.gz" ]; then
+      echo "Movendo arquivos de instalação."
+      sudo cp AVAPolos.tar.gz /opt/AVAPolos/
+      cd /opt/AVAPolos/
+    else
+      echo "O arquivo 'AVAPolos.tar.gz' não foi encontrado, certifique-se que o mesmo se encontra nesse diretório: $PWD"
+      exit
+    fi
+    echo "Extraindo arquivos."
+    sudo tar xf AVAPolos.tar.gz
+    cd install
+    #Otimizar com variáveis no inicio da execução
+    if ! [ -f /opt/AVAPolos/install/scripts/database ]; then
+      #if [ -z $2 ]; then
+        #echo "Deseja instalar qual banco de dados? (postgresql/mysql)"
+        sudo touch scripts/database
+        sudo chmod 777 scripts/database
+        #read option
+        #  if [ "$option" = "postgresql" ]; then
+        #    echo "PostgreSQL selecionado."
+            echo "postgresql" >> scripts/database
+        #  elif [ "$option" = "mysql" ]; then
+        #    echo "MySQL selecionado."
+        #    echo "mysql" >> scripts/database
+        #  else
+        #    echo "Nenhum banco de dados selecionado."
+        #    exit;
+        #  fi
+      #else
+      #  if [ "$2" = "postgresql" ]; then
+      #    echo "PostgreSQL selecionado."
+      #    echo "postgresql" >> scripts/database
+      #  elif [ "$2" = "mysql" ]; then
+      #    echo "MySQL selecionado."
+      #    echo "mysql" >> scripts/database
+      #  else
+      #    echo "Nenhum banco de dados selecionado."
+      #    exit;
+      #  fi
+      #fi
+    fi
+    ##
+    #sudo chmod +x install.sh
+
     if [ $1='y' ]; then
       sudo bash install.sh y
     else
