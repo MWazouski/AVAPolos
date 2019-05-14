@@ -1,0 +1,3 @@
+a:5:{s:13:"fallbackaudio";s:14:"Link de áudio";s:13:"fallbackvideo";s:14:"Link de vídeo";s:10:"filtername";s:19:"Plugins multimídia";s:11:"linktomedia";s:351:"O filtro de módulos multimídia pesquisa uma link no texto que aponta para um recurso multimídia e substitui o link por um código apropriado de um leitor de multimídia que consiga reproduzir o recurso. Também substitui <video> e <audio>; palavras-chave com leitores de vídeo e áudio selecionados.
+
+<a href="{$a}">Gerenciar players de mídia</a>";s:16:"privacy:metadata";s:63:"The Multimedia plugins plugin does not store any personal data.";}

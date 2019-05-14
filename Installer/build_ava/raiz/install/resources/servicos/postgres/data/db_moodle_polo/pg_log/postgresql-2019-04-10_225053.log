@@ -1,0 +1,47 @@
+LOG:  database system was shut down at 2019-04-10 22:50:20 UTC
+LOG:  starting up replication identifier with ckpt at 0/16B7888
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  starting background worker process "bdr supervisor"
+LOG:  database system is ready to accept connections
+LOG:  Created database bdr_supervisordb (oid=16385) during BDR startup
+LOG:  worker process: bdr supervisor (PID 36) exited with exit code 1
+LOG:  starting background worker process "bdr supervisor"
+ERROR:  database "moodle" already exists
+STATEMENT:  CREATE DATABASE moodle;
+LOG:  registering background worker "bdr db: moodle"
+LOG:  starting background worker process "bdr db: moodle"
+LOG:  Creating replica with: /usr/lib/postgresql/9.4/bin/bdr_initial_load --snapshot 000002B8-1 --source "host=172.12.0.2 user=bdrsync dbname=moodle password=@bancoava.C4p35*&" --target "host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&" --tmp-directory "/tmp/postgres-bdr-000002B8-1.60", --pg-dump-path "/usr/lib/postgresql/9.4/bin/bdr_dump", --pg-restore-path "/usr/lib/postgresql/9.4/bin/pg_restore"
+Dumping remote database "connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.2 user=bdrsync dbname=moodle password=@bancoava.C4p35*& fallback_application_name='bdr (6678401892023767080,1,16384,): init_replica dump'" with 1 concurrent workers to "/tmp/postgres-bdr-000002B8-1.60"
+Restoring dump to local DB "host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*& fallback_application_name='bdr (6678401892023767080,1,16384,): init_replica restore' options='-c bdr.do_not_replicate=on  -c bdr.permit_unsafe_ddl_commands=on -c bdr.skip_ddl_replication=on -c bdr.skip_ddl_locking=on -c session_replication_role=replica'" with 1 concurrent workers from "/tmp/postgres-bdr-000002B8-1.60"
+LOG:  registering background worker "bdr: catchup apply to 0/18885E8"
+LOG:  starting background worker process "bdr: catchup apply to 0/18885E8"
+LOG:  CONFLICT: remote INSERT: row was previously INSERTed at node 0:0. Resolution: last_update_wins_keep_local; PKEY: node_sysid[text]:6678401892023767080 node_timeline[oid]:1 node_dboid[oid]:16384 node_status[char]:c node_name[text]:node2 node_local_dsn[text]:host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*& node_init_from_dsn[text]:host=172.12.0.2 user=bdrsync dbname=moodle password=@bancoava.C4p35*& node_read_only[bool]:f node_seq_id[int2]:(null)
+CONTEXT:  apply INSERT from remote relation bdr.bdr_nodes in commit 0/18885A8, xid 697 commited at 2019-04-10 22:51:53.156192+00 (action #2) from node (6678401888864649257,1,16384) forwarded from commit 0/0 on node (6678401888864649257,1,16384)
+LOG:  bdr apply finished processing; replayed to 0/18885E8 of required 0/18885E8
+CONTEXT:  apply COMMIT in commit 0/0, xid 0 commited at 2000-01-01 00:00:00+00 (action #0) from node (6678401888864649257,1,16384) forwarded from commit 0/0 on node (6678401888864649257,1,16384)
+LOG:  worker process: bdr: catchup apply to 0/18885E8 (PID 72) exited with exit code 0
+LOG:  unregistering background worker "bdr: catchup apply to 0/18885E8"
+LOG:  registering background worker "bdr (6678401892023767080,1,16384,)->bdr (6678401888864649257,1,"
+LOG:  starting background worker process "bdr (6678401892023767080,1,16384,)->bdr (6678401888864649257,1,"
+LOG:  logical decoding found consistent point at 0/18899A0
+DETAIL:  There are no running transactions.
+LOG:  exported logical decoding snapshot: "000002C5-1" with 0 transaction IDs
+LOG:  starting logical decoding for slot "bdr_16384_6678401888864649257_1_16384__"
+DETAIL:  streaming transactions committing after 0/18899D8, reading WAL from 0/18899A0
+LOG:  logical decoding found consistent point at 0/18899A0
+DETAIL:  There are no running transactions.
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+FATAL:  terminating connection due to administrator command
+CONTEXT:  SQL statement "SELECT node_status FROM bdr.bdr_nodes WHERE node_sysid = $1 AND node_timeline = $2 AND node_dboid = $3"
+LOG:  worker process: bdr db: moodle (PID 60) exited with exit code 1
+LOG:  autovacuum launcher shutting down
+FATAL:  terminating connection due to administrator command
+CONTEXT:  SQL statement "SELECT DISTINCT ON (conn_sysid, conn_timeline, conn_dboid)   conn_sysid, conn_timeline, conn_dboid,   conn_dsn, conn_apply_delay,   conn_replication_sets,   conn_origin_dboid <> 0 AS origin_is_my_id FROM bdr.bdr_connections INNER JOIN bdr.bdr_nodes   ON (conn_sysid = node_sysid AND       conn_timeline = node_timeline AND       conn_dboid = node_dboid) WHERE (conn_origin_sysid = '0'   AND  conn_origin_timeline = 0   AND  conn_origin_dboid = 0)    OR (conn_origin_sysid = $1   AND  conn_origin_timeline = $2   AND  conn_origin_dboid = $3)   AND node_status <> 'k'   AND NOT conn_is_unidirectional ORDER BY conn_sysid, conn_timeline, conn_dboid,          conn_origin_sysid ASC NULLS LAST,          conn_timeline ASC NULLS LAST,          conn_dboid ASC NULLS LAST "
+LOG:  worker process: bdr (6678401892023767080,1,16384,)->bdr (6678401888864649257,1, (PID 74) exited with exit code 1
+LOG:  unexpected EOF on standby connection
+FATAL:  terminating connection due to administrator command
+LOG:  worker process: bdr supervisor (PID 37) exited with exit code 1
+LOG:  shutting down
+LOG:  database system is shut down

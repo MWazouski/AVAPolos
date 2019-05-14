@@ -1,0 +1,9 @@
+a:12:{s:10:"filtername";s:8:"MatjhJax";s:20:"additionaldelimiters";s:38:"Delimitadores adicionais de equações";s:25:"additionaldelimiters_help";s:296:"Filtro MathJax analisa texto para equações que contém caracteres delimitadores.
+
+A lista de caracteres delimitadores reconhecidos pode ser adicionado aqui (por exemplo, o AsciiMath usa `). Delimitadores podem conter vários caracteres e vários delimitadores podem ser separados por vírgulas.";s:8:"httpsurl";s:14:"URL do MathJax";s:13:"httpsurl_help";s:39:"URL completa para a biblioteca MathJax.";s:22:"texfiltercompatibility";s:32:"Compatibilidade com o filtro TeX";s:27:"texfiltercompatibility_help";s:224:"O filtro MathJax pode ser usado como um substituto para o filtro TeX.
+
+De modo a suportar todos os delimitadores aceitos pelo filtro TeX, o MathJax será configurado para apresentar todas as equações alinhadas com o texto.";s:12:"localinstall";s:29:"Instalação local do MathJax";s:17:"localinstall_help";s:489:"A configuração padrão do MathJax usa a versão CDN do MathJax, mas o MathJax poderá ser instalado localmente se necessário.
+
+Isso pode ser útil para se poupar banda e devido a restrições do proxy.
+
+Para usar uma instalação local do MathJax, primeiro, baixe a biblioteca completa do MathJax do site http://www.mathjax.org/. Depois instale-o em um servidor web. Finalmente, atualize as configurações de filtro httpurl e/ou httpsurl para que apontem para a URL local do MathJax.js";s:15:"mathjaxsettings";s:25:"Configuração do MathJax";s:20:"mathjaxsettings_desc";s:228:"A configuração padrão do MathJax deve ser apropriada para a maioria dos usuários, porém, o MathJax é extremamente configurável e qualquer uma das opções de configurações básicas do MathJax podem ser adicionadas aqui.";s:16:"privacy:metadata";s:52:"The MathJax plugin does not store any personal data.";}

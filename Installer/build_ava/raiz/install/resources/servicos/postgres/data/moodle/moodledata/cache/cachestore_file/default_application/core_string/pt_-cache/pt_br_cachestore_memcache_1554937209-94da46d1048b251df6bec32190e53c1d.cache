@@ -1,0 +1,21 @@
+a:17:{s:9:"clustered";s:28:"Ativar servidores em cluster";s:14:"clustered_help";s:449:"Usado para permitir apenas leitura, configurando múltiplas funcionalidades. O resultado é criar um bloco customizado para configurações de balanceamento de carga. O bloco faz uma consulta a partir de um servidor (localhost), ou a definir (todos os servidores  no pool de balanceamento de carga).
+Para caches com alto volume de leitura isto reduz a sobrecarga na rede. Quando habilitado, os servidores listados acima serão utilizados para busca.";s:15:"clusteredheader";s:18:"Dividir Servidores";s:10:"pluginname";s:8:"Memcache";s:6:"prefix";s:13:"Prefixo chave";s:11:"prefix_help";s:273:"Este prefixo é usado para todos os nomes chaves no servidor memcache.
+* Se você tiver apenas uma instância do Moodle usando este servidor, você pode deixar este valor como padrão.
+* Devido a restrições de comprimento de chaves, o máximo de 5 caracteres é permitido";s:13:"prefixinvalid";s:53:"Prefixo inválido. Você só pode usar a-z A-Z 0-9-_.";s:25:"privacy:metadata:memcache";s:163:"The Memcache cachestore plugin stores data briefly as part of its caching functionality. This data is stored on an Memcache server where data is regularly removed.";s:30:"privacy:metadata:memcache:data";s:36:"The various data stored in the cache";s:7:"servers";s:10:"Servidores";s:12:"servers_help";s:557:"Isso define os servidores que devem ser utilizados por este adaptador memcache.
+Servidores devem ser definidos por uma linha e constituído por um endereço de servidor e, opcionalmente, uma porta e peso. Se nenhuma porta é fornecida será utilizada a porta padrão (11211).
+
+Por exemplo:
+<pre>
+server.url.com
+ipadress:port
+servername:port:weight
+</pre>
+
+Se *habilitar servidores em cluster * é ativado abaixo, deve haver apenas um servidor listado aqui. Isso normalmente seria um nome que sempre resolve para a maquina local, como 127.0.0.1 ou localhost.";s:21:"serversclusterinvalid";s:73:"Exatamente um servidor é necessário quando o agrupamento está ativado.";s:10:"setservers";s:18:"Definir servidores";s:15:"setservers_help";s:500:"Esta é a lista de servidores que serão atualizados quando os dados são modificados no cache. Geralmente, o nome completo de cada servidor no seu "pool". Ele ** ** deve incluir o servidor listado em * Servidores * acima, mesmo que por um nome diferente. Os servidores devem ser definidos um por linha e consistem de um endereço de servidor e, opcionalmente, uma porta. Se nenhuma porta é fornecida então a porta padrão (11211) é usada.
+
+Por exemplo:
+<pre>
+server.url.com
+ipaddress: port
+</pre>";s:22:"sessionhandlerconflict";s:170:"Aviso: Um exemplo memcache ({$a}) tem que ser configurado para usar o mesmo servidor memcached como sessões. Limpar todos os caches levará a sessões igualmente limpas.";s:11:"testservers";s:19:"Servidores de teste";s:16:"testservers_desc";s:345:"Os servidores teste são usados para testes unitários e testes de desempenho. É totalmente opcional se configurar servidores de teste. Servidores deveriam ser definidos um por linha e consistir de um endereço do servidor e, opcionalmente, uma porta e peso.
+Se nenhuma porta for fornecida, então a porta padrão (127.0.0.1:11211) será usada.";}

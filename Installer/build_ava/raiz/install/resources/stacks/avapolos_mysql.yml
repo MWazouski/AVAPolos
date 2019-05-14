@@ -1,0 +1,99 @@
+version: '3.7'
+
+services:
+  
+  db_master:
+    image: library/mysql:5.7
+    volumes:
+      - ./data/mysql_master:/var/lib/mysql
+    networks:
+      avapolos:
+        aliases:
+          - db_master
+    deploy:
+      mode: replicated
+      replicas: 1
+    stop_signal: SIGINT
+    #stdin_open: true
+    #tty: true
+    environment:
+      - UID=USER
+
+  db_slave:
+    image: library/mysql:5.7
+    volumes:
+      - ./data/mysql_slave:/var/lib/mysql
+    networks:
+      avapolos:
+        aliases:
+          - db_slave
+    deploy:
+      mode: replicated
+      replicas: 1
+    #stdin_open: true
+    #tty: true
+    stop_signal: SIGINT
+    environment:
+      - UID=USER
+
+  moodle:
+    image: avapolos/webserver:1.0
+    ports:
+      - "80:80"
+    volumes:
+      - ./data/moodle:/var/www
+    networks:
+     avapolos:
+        aliases:
+          - moodle
+    deploy:
+      mode: replicated
+      replicas: 3
+    #healthcheck:
+    #  test: ["CMD", "curl", "-f", "http://localhost"]
+    #  interval: 10s
+    #  timeout: 20s
+    environment:
+      - UID=USER
+
+  wiki:
+    image: avapolos/webserver:1.0
+    ports:
+      - "81:80"
+    volumes:
+      - ./data/wiki:/var/www/
+    networks:
+      avapolos:
+        aliases:
+          - wiki
+    deploy:
+      mode: replicated
+      replicas: 3
+    #healthcheck:
+    #  test: ["CMD", "curl", "-f", "http://localhost:81"]
+    #  interval: 10s
+    #  timeout: 20s
+    environment:
+      - UID=USER
+
+  backup:
+    image: avapolos/backup:stable
+    volumes:
+      - ./data/wiki:/volumes/wiki
+      - ./data/moodle:/volumes/moodle
+      - ./data/mysql_master:/volumes/database_master
+      - ./data/mysql_slave:/volumes/database_slave
+      - ./data/backups:/opt/backups
+    deploy:
+      mode: replicated
+      replicas: 1
+    networks:
+      avapolos:
+
+networks:
+  avapolos:
+    driver: overlay
+    attachable: true
+    ipam:
+      config:
+        - subnet: 172.12.0.0/24

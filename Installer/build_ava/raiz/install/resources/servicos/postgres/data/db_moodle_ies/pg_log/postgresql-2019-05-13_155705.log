@@ -1,0 +1,218 @@
+LOG:  database system was shut down at 2019-05-11 01:59:21 UTC
+LOG:  starting up replication identifier with ckpt at 0/34E37C0
+LOG:  recovered replication state of node 1 to 0/34BC438
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  starting background worker process "bdr supervisor"
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+LOG:  worker process: bdr supervisor (PID 40) exited with exit code 1
+LOG:  starting background worker process "bdr supervisor"
+LOG:  registering background worker "bdr db: moodle"
+LOG:  starting background worker process "bdr db: moodle"
+LOG:  registering background worker "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 43) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 44) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 46) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 47) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 49) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 50) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 52) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 53) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 55) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 56) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 58) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 60) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 61) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 63) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 64) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 66) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 67) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 69) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 70) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 72) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 73) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 75) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 76) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 78) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 80) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 81) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 83) exited with exit code 1
+LOG:  starting background worker process "bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1,"
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+FATAL:  terminating connection due to administrator command
+CONTEXT:  SQL statement "SELECT node_status FROM bdr.bdr_nodes WHERE node_sysid = $1 AND node_timeline = $2 AND node_dboid = $3"
+LOG:  worker process: bdr db: moodle (PID 42) exited with exit code 1
+LOG:  worker process: bdr supervisor (PID 41) exited with exit code 0
+LOG:  unregistering background worker "bdr supervisor"
+ERROR:  establish BDR: could not connect to server: No route to host
+		Is the server running on host "172.12.0.3" and accepting
+		TCP/IP connections on port 5432?
+	
+DETAIL:  Connection string is 'replication=database fallback_application_name='bdr (6678401888864649257,1,16384,):receive' connect_timeout=30 keepalives=1 keepalives_idle=20 keepalives_interval=20 keepalives_count=5   host=172.12.0.3 user=bdrsync dbname=moodle password=@bancoava.C4p35*&'
+LOG:  worker process: bdr (6678401888864649257,1,16384,)->bdr (6678401892023767080,1, (PID 84) exited with exit code 1
+LOG:  shutting down
+LOG:  database system is shut down

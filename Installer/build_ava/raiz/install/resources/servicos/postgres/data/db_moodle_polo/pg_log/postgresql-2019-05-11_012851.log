@@ -1,0 +1,30 @@
+LOG:  database system was shut down at 2019-05-11 01:02:53 UTC
+LOG:  starting up replication identifier with ckpt at 0/34B8308
+LOG:  recovered replication state of node 1 to 0/34E0AF0
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  starting background worker process "bdr supervisor"
+LOG:  database system is ready to accept connections
+LOG:  worker process: bdr supervisor (PID 41) exited with exit code 1
+LOG:  starting background worker process "bdr supervisor"
+LOG:  registering background worker "bdr db: moodle"
+LOG:  starting background worker process "bdr db: moodle"
+LOG:  registering background worker "bdr (6678401892023767080,1,16384,)->bdr (6678401888864649257,1,"
+LOG:  starting background worker process "bdr (6678401892023767080,1,16384,)->bdr (6678401888864649257,1,"
+LOG:  starting logical decoding for slot "bdr_16384_6678401888864649257_1_16384__"
+DETAIL:  streaming transactions committing after 0/34B82D0, reading WAL from 0/34B82D0
+LOG:  logical decoding found consistent point at 0/34B82D0
+DETAIL:  There are no running transactions.
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+FATAL:  terminating connection due to administrator command
+CONTEXT:  SQL statement "SELECT DISTINCT ON (conn_sysid, conn_timeline, conn_dboid)   conn_sysid, conn_timeline, conn_dboid,   conn_dsn, conn_apply_delay,   conn_replication_sets,   conn_origin_dboid <> 0 AS origin_is_my_id FROM bdr.bdr_connections INNER JOIN bdr.bdr_nodes   ON (conn_sysid = node_sysid AND       conn_timeline = node_timeline AND       conn_dboid = node_dboid) WHERE (conn_origin_sysid = '0'   AND  conn_origin_timeline = 0   AND  conn_origin_dboid = 0)    OR (conn_origin_sysid = $1   AND  conn_origin_timeline = $2   AND  conn_origin_dboid = $3)   AND node_status <> 'k'   AND NOT conn_is_unidirectional ORDER BY conn_sysid, conn_timeline, conn_dboid,          conn_origin_sysid ASC NULLS LAST,          conn_timeline ASC NULLS LAST,          conn_dboid ASC NULLS LAST "
+LOG:  worker process: bdr supervisor (PID 42) exited with exit code 0
+LOG:  unregistering background worker "bdr supervisor"
+FATAL:  terminating connection due to administrator command
+CONTEXT:  SQL statement "SELECT node_status FROM bdr.bdr_nodes WHERE node_sysid = $1 AND node_timeline = $2 AND node_dboid = $3"
+LOG:  worker process: bdr db: moodle (PID 43) exited with exit code 1
+LOG:  worker process: bdr (6678401892023767080,1,16384,)->bdr (6678401888864649257,1, (PID 44) exited with exit code 1
+LOG:  shutting down
+LOG:  database system is shut down

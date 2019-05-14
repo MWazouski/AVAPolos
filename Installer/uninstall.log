@@ -1,0 +1,48 @@
+Argumentos passados:  
+ 
+-----------------------
+Desinstalando AVA-Polos
+-----------------------
+ 
+--------------------
+Desinstalando Docker
+--------------------
+Lendo listas de pacotes...
+Construindo árvore de dependências...
+Lendo informação de estado...
+0 pacotes atualizados, 0 pacotes novos instalados, 0 a serem removidos e 0 não atualizados.
+Lendo listas de pacotes...
+Construindo árvore de dependências...
+Lendo informação de estado...
+O pacote 'docker-engine' não está instalado, por isso não será removido
+O pacote 'docker' não está instalado, por isso não será removido
+O pacote 'docker.io' não está instalado, por isso não será removido
+Os pacotes a seguir serão REMOVIDOS:
+  containerd.io* docker-ce* docker-ce-cli*
+0 pacotes atualizados, 0 pacotes novos instalados, 3 a serem removidos e 0 não atualizados.
+Depois desta operação, 242 MB de espaço em disco serão liberados.
+(Lendo banco de dados ... (Lendo banco de dados ... 5%(Lendo banco de dados ... 10%(Lendo banco de dados ... 15%(Lendo banco de dados ... 20%(Lendo banco de dados ... 25%(Lendo banco de dados ... 30%(Lendo banco de dados ... 35%(Lendo banco de dados ... 40%(Lendo banco de dados ... 45%(Lendo banco de dados ... 50%(Lendo banco de dados ... 55%(Lendo banco de dados ... 60%(Lendo banco de dados ... 65%(Lendo banco de dados ... 70%(Lendo banco de dados ... 75%(Lendo banco de dados ... 80%(Lendo banco de dados ... 85%(Lendo banco de dados ... 90%(Lendo banco de dados ... 95%(Lendo banco de dados ... 100%(Lendo banco de dados ... 174796 ficheiros e directórios actualmente instalados.)
+A remover docker-ce (5:18.09.5~3-0~ubuntu-bionic) ...
+A remover containerd.io (1.2.5-1) ...
+A remover docker-ce-cli (5:18.09.5~3-0~ubuntu-bionic) ...
+A processar 'triggers' para man-db (2.8.3-2ubuntu0.1) ...
+(Lendo banco de dados ... (Lendo banco de dados ... 5%(Lendo banco de dados ... 10%(Lendo banco de dados ... 15%(Lendo banco de dados ... 20%(Lendo banco de dados ... 25%(Lendo banco de dados ... 30%(Lendo banco de dados ... 35%(Lendo banco de dados ... 40%(Lendo banco de dados ... 45%(Lendo banco de dados ... 50%(Lendo banco de dados ... 55%(Lendo banco de dados ... 60%(Lendo banco de dados ... 65%(Lendo banco de dados ... 70%(Lendo banco de dados ... 75%(Lendo banco de dados ... 80%(Lendo banco de dados ... 85%(Lendo banco de dados ... 90%(Lendo banco de dados ... 95%(Lendo banco de dados ... 100%(Lendo banco de dados ... 174588 ficheiros e directórios actualmente instalados.)
+A purgar os ficheiros de configuração para docker-ce (5:18.09.5~3-0~ubuntu-bionic) ...
+A purgar os ficheiros de configuração para containerd.io (1.2.5-1) ...
+A processar 'triggers' para ureadahead (0.100.0-21) ...
+A processar 'triggers' para systemd (237-3ubuntu10.21) ...
+Lendo listas de pacotes...
+Construindo árvore de dependências...
+Lendo informação de estado...
+O pacote 'docker-engine' não está instalado, por isso não será removido
+O pacote 'docker-ce' não está instalado, por isso não será removido
+E: Impossível encontrar o pacote docker-ce-cli
+E: Impossível encontrar o pacote containerd.io
+E: Couldn't find any package by glob 'containerd.io'
+E: Não foi possível encontrar o pacote através da expressão regular 'containerd.io'
+Removendo arquivos do Docker.
+Docker desinstalado com sucesso.
+ 
+-----------------------
+Desinstalação concluída
+-----------------------
