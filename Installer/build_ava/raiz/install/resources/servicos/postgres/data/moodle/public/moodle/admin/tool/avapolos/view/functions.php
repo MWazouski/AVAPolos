@@ -1,6 +1,5 @@
 
 <?php
-//RafaelV3.0
     set_time_limit(0);
 
     class MySQL_AVAEntity{
