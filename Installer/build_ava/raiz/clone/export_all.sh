@@ -1,13 +1,12 @@
 #!/bin/bash
-#RafaelV3.0
+#rafaelV2
 echo " "
 echo "--------------------"
 echo "Exportação AVA-Polos"
 echo "--------------------"
 
-source /opt/AVAPolos/variables.sh
-source /opt/AVAPolos/functions.sh
-
+source ../functions.sh
+source ../variables.sh
 
 database=$(cat ../install/scripts/database)
 
@@ -22,7 +21,6 @@ stopDBMaster
 ###TO-DO: tornar moodle inacessivel
 clearQueue 0
 #apagando o registro de controle do clone para que uma nova clonagem possa ser gerada quando desejado
-deleteCloneControlRecord
 
 echo "Parando serviços..."
 
