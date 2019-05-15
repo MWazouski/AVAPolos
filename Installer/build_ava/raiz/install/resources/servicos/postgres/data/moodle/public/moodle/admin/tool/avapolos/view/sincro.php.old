@@ -1,5 +1,4 @@
 <?php
-//RafaelV3.0
 set_time_limit(0);
 
 
@@ -9,15 +8,12 @@ require_once('simpleform.php'); // require do arquivo de formulario
 require_once('functions.php'); // require do arquivo de funções
 admin_externalpage_setup('tool_avapolos'); // Bloco lateral direito
 echo $OUTPUT->header(); // header da página OBLIGATORY
-define("IP", "10.230.0.65");
+define("IP", "10.230.233.197");
 define("PORT", 22);
 
 // Instantiate simplehtml_form
 $exportform = new export_form();
 $importform = new import_form();
-
-require_once("$CFG->libdir/filestorage/file_storage.php");
-$file_storage = new file_storage();
 
 // Form processing and displaying is done here
 if ($exportform->is_cancelled() || $importform->is_cancelled()) {
@@ -30,7 +26,6 @@ else if ($fromform = $exportform->get_data()) {
     $choice[] = $aux;
   }
 
-  $file_storage->cron(true);
   //
   if($choice[0] == "offline"){
     try{
@@ -101,11 +96,9 @@ else if($fromform = $importform->get_data()){
   // salvar o arquivo no diretório
   $success = $importform->save_file('sqlfile', "./$fileName", true);
   if(!$success)
-    exit("ERRO AO SALVAR ARQUIVO DE SINCRONIZAÇÃO (sincro.php), CONTATE O ADMINISTRADOR.");
+    exit("ERRO AO SALVAR ARQUIVO DE SINCRONIZAÇÃO (hello.php), CONTATE O ADMINISTRADOR.");
 
- $file_storage->cron(true);
-	  
- try {
+  try {
     $ssh = new Connect_SSH(IP, PORT, "avapolos","avapolos");
     $ssh->create_ssh_connection();
     $ssh->exec_ssh_import();

@@ -1,6 +1,5 @@
-
 <?php
-//RafaelV3.0
+    //rafaelV
     set_time_limit(0);
 
     class MySQL_AVAEntity{
@@ -254,7 +253,7 @@
       // print_r($this->connection);
       if(ssh2_auth_password($this->connection, 'avapolos', 'avapolos')) { //CREDENCIAIS
         try{
-          $stream = ssh2_exec($this->connection, 'cd '.$this->dirPath.'; bash '.$this->sh_file.' 1 '.$_SESSION["USER"]->username.' > '.$this->output_file);
+          $stream = ssh2_exec($this->connection, 'cd '.$this->dirPath.'; bash '.$this->sh_file.' 1 '.$_SESSION["username"].' > '.$this->output_file);
         }catch(Exception $e){
           echo "Erro";
         }
@@ -268,7 +267,7 @@
       // print_r($this->connection);
       if(ssh2_auth_password($this->connection, 'avapolos', 'avapolos')) { //CREDENCIAIS
         try{
-           $stream = ssh2_exec($this->connection, 'cd '.$this->dirPath.';bash '.$this->sh_file.' 2 '.$_SESSION["USER"]->username.' > '.$this->output_file);
+           $stream = ssh2_exec($this->connection, 'cd '.$this->dirPath.';bash '.$this->sh_file.' 2 '.$_SESSION["username"].' > '.$this->output_file);
         }catch(Exception $e){
           echo "Erro";
         }
