@@ -1,6 +1,6 @@
 #!/bin/bash
-#RafaelV3.0
-source /opt/AVAPolos/variables.sh
+#rafaelV2
+source variables.sh
 
 getLastSnapshot() {
   while IFS='|' read -r item1 item2
@@ -129,8 +129,8 @@ waitSyncEnd(){ #$1 = nome do container do banco; $2 = instancia do registro a se
    ret=""
    while [ -z "$ret" ]; do
       echo "-> Sincronização em andamento | STATUS = [NÃO FINALIZADA]"
+      sleep 7
       ret=$(docker exec $1 psql -U moodle -d moodle -c "SELECT COUNT(*) FROM avapolos_sync WHERE instancia='$2' AND tipo='E' AND versao=$3" | sed -n '3p' | grep -o 1)
-      sleep 5
    done 
 }
 
@@ -140,32 +140,34 @@ waitSyncEndMaster(){ #wait for DBMaster to be synchronized with DBSync (to has t
 
 waitSyncEndSync(){ #wait for DBSync to be synchronized with DBMaster (to has the same records) $1 = instancia do registro a ser verificado (POLO ou IES); $2 = versao do export a ser procurada
    waitSyncEnd $containerDBSyncName $1 $2
+   if [ $2 -eq 0 ]; then #delete cloneControl record in both servers if this is a clone operation - bdr might try to sync the deletions and fail, but it will just ignore the fail
+      echo " --> APAGANDO REGISTROS DE CONTROLE DE CLONAGEM."
+      deleteCloneControlRecord
+   fi
 }
 
 copyExportFiles(){
-    pastaBackup=$1
-    echo " -> Copiando arquivos...."       
+    exportDir="$dirExportPath/$1"
+    exportDirFiles="$exportDir/arquivos/filedir"
+    exportDirDb="$exportDir/database"
+    exportDirFileList="$exportDir/filedirList"
 
-    if [ -e "$dirExportPath/$pastaBackup" ]; then
+    echo " -> Copiando arquivos...."
+
+    if [ -e "$exportDir" ]; then
        labelData=$(date -u "+%Y%m%d%H%M%S")
-       echo " -> Diretório $dirExportPath/$pastaBackup já existe, criando backup..."
-       mv "$dirExportPath/$pastaBackup" "$dirExportPath/../${pastaBackup}CONFLICT$labelData"
-       echo " ---> ...backup criado. Diretório $dirExportPath/../${pastaBackup}CONFLICT$labelData"
+       echo " -> Diretório $exportDir já existe, criando backup..."
+       mv "$exportDir" "$dirExportPath/${$1}_CONFLICT_$labelData"
+       echo " ---> ...backup criado. Diretório $dirExportPath/${$1}_CONFLICT_$labelData"
     fi
 
-    mkdir "$dirExportPath/$pastaBackup" "$dirExportPath/$pastaBackup/arquivos" "$dirExportPath/$pastaBackup/database"
-    
-    if cp -rf "$dirPath/data/$dataDirMaster/" "$dirExportPath/$pastaBackup/database/"; then
-      if cp -rf "$dirPath/data/moodle/moodledata/filedir/" "$dirExportPath/$pastaBackup/arquivos/"; then
-        sleep 3
-      else
-        echo "-> BACKUP | STATUS = [ERROR FILEDIR- CONTATE O ADMINISTRADOR]"
-      fi
-    else
-        echo "-> BACKUP | STATUS = [ERROR DB - CONTATE O ADMINISTRADOR]"
-    fi
+    mkdir -p "$exportDirFiles" "$exportDirDb" "$exportDirFileList"
 
-    echo " ----> ...arquivos copiados."   
+    copyDbFiles $exportDirDb #copy database files to the exportDatabaseDir
+    copyDiffFileDir $exportDirFiles #copy moodledata/filedir to the exportFileDir
+    cp -r $masterFileDirListPath/* $exportDirFileList/ #
+
+    echo " ----> ...arquivos copiados."
 }
 
 createExportFile(){
@@ -193,6 +195,7 @@ loadConfig(){
 }
 
 changeDBSync(){
+   importDir=$1
    echo "-> REMOVING DB_SYNC..."
    rm -rf "$dirPath/data/$dataDirSync" #or postgresql_master depending if it is IES or polo
    while [ -e $dirPath/data/$dataDirSync ];
@@ -203,7 +206,7 @@ changeDBSync(){
    echo "------> DB_SYNC removed."
 
    echo "-> COPYING DB_SYNC FROM THE IMPORT FILE..."
-   cp -R "$dirImportPath/$nameFile/database/$dataDirSync" "$dirPath/data/${dataDirSync}STAGE" && mv "$dirPath/data/${dataDirSync}STAGE" "$dirPath/data/$dataDirSync"
+   cp -R "$dirImportPath/$importDir/database/$dataDirSync" "$dirPath/data/${dataDirSync}STAGE" && mv "$dirPath/data/${dataDirSync}STAGE" "$dirPath/data/$dataDirSync"
    echo "-------> NEW DB_SYNC COPIED."
 }
 
@@ -221,13 +224,14 @@ createControlRecord(){ #$1 = versao do export sendo exportado ou importado;
 }
 
 deleteCloneControlRecord(){
-   ret=$(docker exec $containerDBMasterName psql -U moodle -d moodle -c "DELETE FROM avapolos_sync WHERE versao=0;")
+   docker exec $containerDBMasterName psql -U moodle -d moodle -c "DELETE FROM avapolos_sync WHERE versao=0;"
+   docker exec $containerDBSyncName psql -U moodle -d moodle -c "DELETE FROM avapolos_sync WHERE versao=0;"
 }
 
 queueExportFiles(){ #$1 = moodleUser - usuario do moodle que gerou a exportacao (em caso de clone sera instaladorAvapolos)
     ###carrega variaveis de ultimo export, ultimo import
     loadConfig
-    exportDir="dadosV_${nextExport}_$instance"   
+    exportDirName="dadosV_${nextExport}_$instance"
 
     ###Remover acesso ao moodle
 
@@ -235,7 +239,7 @@ queueExportFiles(){ #$1 = moodleUser - usuario do moodle que gerou a exportacao 
     createControlRecord $nextExport E $1 && stopDBMaster
 
     ###cria arquivos de exportação na pasta Export/Fila
-    copyExportFiles $exportDir
+    copyExportFiles $exportDirName
 
     ###ajusta o arquivo de configuração
     echo "Último export realizado $instance: $nextExport | Último sync $instance realizado: $lastImport" > $configPath
@@ -245,3 +249,54 @@ queueExportFiles(){ #$1 = moodleUser - usuario do moodle que gerou a exportacao 
     clearQueue $nextExport
     echo " ----> ...fila limpa."
 }
+
+createFileDirList(){ #$1 = fileDirListPath
+   fileDirListPath=$1
+   if [ -e $fileDirListPath ]; then
+      rm -rf $fileDirListPath;
+   fi
+   for file in $(find $fileDirPath | grep -Eo '([a-f0-9]{2}/){2}([a-f0-9]){40}$'); do namedir=$fileDirListPath/$(dirname $file); mkdir $namedir -p; touch $namedir/$(basename $file); done
+
+}
+
+createSyncFileDirList(){ #this function is used only when the clone is done, when the master knows that the syncFileDir is exactly the same as the masterFileDir
+   createFileDirList $syncFileDirListPath
+}
+
+copySyncFileDirList(){ #$1 = SyncFileDirListPath
+   if [ -e $syncFileDirListPath ]; then
+      rm $syncFileDirListPath -rf;
+      mkdir $syncFileDirListPath -p;
+      cp -r $1/* $syncFileDirListPath;
+   fi
+}
+
+createMasterFileDirList(){
+   createFileDirList $masterFileDirListPath
+}
+
+copyDbFiles(){ #$1 = exportDir/database
+   cp -rf "$dirPath/data/$dataDirMaster/" $1
+}
+
+copyDiffFileDir(){ #$1 exportFileDir (use absolutePath!!!)
+    exportFileDir=$1
+    if [ ! -e $syncFileDirListPath ]; then
+       mkdir -p $syncFileDirListPath
+    fi
+    createMasterFileDirList
+    for file in $(diff -rq $masterFileDirListPath $syncFileDirListPath | grep $masterFileDirListPath | cut -d" " -f3,4 | sed -e 's/: /\//g'); do 
+       echo $file
+       fileSourcePath=$(echo $file | sed -e "s/$(escapePath $masterFileDirListPath)/$(escapePath $fileDirPath)/g")
+       destPath=$(echo $file | sed -e "s/$(escapePath $masterFileDirListPath)/$(escapePath $exportFileDir)/g")
+       nameFile=$(basename $destPath)
+       destPath=$(dirname $destPath)
+       mkdir -p $destPath;
+       cp -r $fileSourcePath $destPath/;
+    done
+}
+
+escapePath(){
+   echo $1 | sed -e 's/\//\\\//g'
+}
+

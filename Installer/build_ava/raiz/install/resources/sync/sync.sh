@@ -1,5 +1,5 @@
  #!/bin/bash
- #RafaelV3.0
+ #rafaelV
  # PROJETO
  #     _                      ____            _               
  #    / \    __   __   __ _  |  _ \    ___   | |   ___    ___ 
@@ -13,7 +13,7 @@ username=$2
 
 
 if [ ! "$option" = "1" ] && [ ! "$option" = "2" ]; then
-   echo "Usage: sync.sh option moodleUser [pathToManualTar];
+   echo "Usage: sync.sh option moodleUser [tarPath];
             --> option = 1 to export or 2 to import."
    exit 1
 fi
@@ -33,12 +33,12 @@ if [ "$option" = "1" ]; then
     queueExportFiles $username
 
     ###gera arquivo de exportação
-    createExportFile "$exportDir.tar.gz"
+    createExportFile "$exportDirName.tar.gz"
 
    
     echo " ================= PROCESSO DE EXPORTAÇÃO CONCLUÍDO. ================="
     
-    echo "$exportDir.tar.gz" > $dirViewPath/syncFinalizada #sinaliza ao PHP que a sincronização foi finalizada
+    echo "$exportDirName.tar.gz" > $dirViewPath/syncFinalizada #sinaliza ao PHP que a sincronização foi finalizada
 elif [ "$option" = "2" ]; then
 
     exportDone=0
@@ -53,6 +53,7 @@ elif [ "$option" = "2" ]; then
     list=$(ls $dirImportPath | grep dadosV_)
 
     for nameFile in $list; do
+        nameImportDir=$nameFile
         # verifica se o diretorio existe ou pula ele
         nameFile=$(basename $nameFile)
         echo "$dirImportPath/$nameFile"
@@ -78,12 +79,16 @@ elif [ "$option" = "2" ]; then
 	stopDBSync
         stopDBMaster  
         ### SUBSTITUIR DB_SYNC
-	changeDBSync 
-        
+	changeDBSync $nameImportDir
+       
         ### Fazer a sincronização de arquivos usando rsync entre a pasta de dentro do import e a pasta de arquivos do moodle
         echo "-> SINCRONIZANDO ARQUIVOS..."
-        rsync -avzh  "$dirImportPath/$nameFile/arquivos/filedir/" "$dirPath/data/moodle/moodledata/filedir/"
+#       rsync -avzh  "$dirImportPath/$nameImportDir/arquivos/filedir/" "$dirPath/data/moodle/moodledata/filedir/"
+        cp -r  "$dirImportPath/$nameImportDir/arquivos/filedir" "$dirPath/data/moodle/moodledata/"
         echo "---> ...ARQUIVOS SINCRONIZADOS."
+
+	#copiar novo estado do SyncFileDirList
+        copySyncFileDirList $dirImportPath/$nameImportDir/
       	
         startSync $importNumber #inicia a sincronização do banco de dados e espera que ela acabe
         

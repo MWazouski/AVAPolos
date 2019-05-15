@@ -10,7 +10,7 @@ else
    stopDBMaster
    stopDBSync
 
-   rm -rf config.txt data/$dataDirMaster data/$dataDirSync data/moodle/moodledata/filedir Export/
+   rm -rf config.txt data/$dataDirMaster data/$dataDirSync data/moodle/moodledata/filedir Export/ Import/*
    tar -xvzf $1
 
    startMoodle

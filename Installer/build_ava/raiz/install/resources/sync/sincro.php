@@ -8,7 +8,7 @@ require_once('simpleform.php'); // require do arquivo de formulario
 require_once('functions.php'); // require do arquivo de funções
 admin_externalpage_setup('tool_avapolos'); // Bloco lateral direito
 echo $OUTPUT->header(); // header da página OBLIGATORY
-define("IP", "SERVER");
+define("IP", "10.230.234.13");
 define("PORT", 22);
 
 // Instantiate simplehtml_form
