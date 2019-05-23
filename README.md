@@ -3,9 +3,9 @@ AVAPolos é uma solução tecnológica que possibilitará acesso aos Ambientes V
 
 ## Download da solução AVAPolos
 
-O arquivo de instalação pode ser obtido através do [link](), ou através do terminal,
+O arquivo de instalação pode ser obtido através da [página web](http://avapolos.c3.furg.br) da solução AVAPolos, ou através do terminal, executando o comando,
 
-    wget http://avapolos.c3.furg.br -O instaladoravapolos
+    wget avapolos.c3.furg.br -O instaladoravapolos
 
  ## Manual de Instalação da solução AVAPolos
 
