@@ -7,4 +7,4 @@ Para obter instruções de instalação acesse o [Manual de Instalação](https:
 
 ## Manual de Utilização 
 
-Para visualizar o Guia de Uso acesse o [Manual de Utilização da Ferramenta](https://github.com/C3FURG/AVAPolos/wiki/Manual-de-Utiliza%C3%A7%C3%A3o). 
+Para obter instruções sobre a utilização da ferramenta acesse o [Manual de Utilização da Ferramenta](https://github.com/C3FURG/AVAPolos/wiki/Manual-de-Utiliza%C3%A7%C3%A3o). 
