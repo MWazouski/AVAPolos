@@ -3,7 +3,7 @@ AVAPolos é uma solução tecnológica que possibilitará acesso aos Ambientes V
 
  ## Manual de Instalação
 
-Para obter instruções de instalação acesse o [Manual de Instalação](https://github.com/C3FURG/AVAPolos/wiki/Procedimentos-de-Instala%C3%A7%C3%A3o-e-Desinstala%C3%A7%C3%A3o). 
+Para obter instruções de instalação acesse o [Manual de Instalação](https://github.com/C3FURG/AVAPolos/wiki/Manual-de-Instala%C3%A7%C3%A3o). 
 
 ## Manual de Utilização 
 
